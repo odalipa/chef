@@ -2,6 +2,9 @@ package 'ntp' do
   action :install
 end
 
+package 'emacs'
+package 'vim-enhanced'
+
 package 'tree' do
   action :install
 end
