@@ -19,17 +19,9 @@ package 'git' do
   action :install
 end
 
-file '/etc/motd' do
-  content "This Server is the Property of Mariano
-  HOSTNAME: #{node['hostname']}
-  IPADDRESS: #{node['ipaddress']} 
-  CPU: #{node['cpu']['0']['mhz']}
-  MEMORY: #{node['memory']['total']}
-"
+template '/etc/motd' do
+  source 'motd.erb'
   action :create
-  mode '0644'
-  owner 'root'
-  group 'root'
 end
 
 service 'ntpd' do
